@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import HeroLayout from "../pages/HeroLayout";
-import Dashboard from "../pages/Dashboard";
+
 import MaterialsContent from "../pages/Materials";
 import Settings from "../pages/Setting";
 import CollectionContent from "../pages/Collections";
