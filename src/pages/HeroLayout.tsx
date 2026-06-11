@@ -12,11 +12,15 @@ export default function HeroLayout(){
     
     <section className="flex">
         <Sidebar />
-        <section className="flex flex-col w-full h-screen">
+        
+        <section className="flex flex-col w-full h-screen ">
          <section >
+
         <Header/>
         </section>
+       
         <Outlet/>
+        
         </section>
     </section>
     );
