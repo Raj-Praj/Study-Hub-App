@@ -1,5 +1,5 @@
-import LeftSideComponent from "../landingPage/LeftSideComponent";
-import RightSideComponent from "../landingPage/RightSideComponent";
+import LeftSideComponent from "../landingPage/loginpage/LeftSideComponent";
+import RightSideComponent from "../landingPage/loginpage/RightSideComponent";
 
 
 export default function LoginPage(){
