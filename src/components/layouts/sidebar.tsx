@@ -14,14 +14,15 @@ export default function Sidebar() {
 
         <section className="w-full h-screen  ">
              <section className=" h-4/5 pt-5">
+                   
                    <SidebarMenu navLabel="Menu"/>
                    <SidebarAccount navLabel="Account"/>
 
              </section>
-        
                <section className="w-full  h-1/5">
             
                   <SidebarLogout />
+                  
              </section>
         </section>
     </aside>

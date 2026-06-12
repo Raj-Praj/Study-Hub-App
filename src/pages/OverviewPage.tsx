@@ -1,5 +1,6 @@
 import OverViewCard from "../components/overview/OverviewCard";
 import OverviewHeader from "../components/overview/OverviewHeader";
+import OverviewRightBottom from "../components/overview/OverviewRight";
 import OverviewUploadBtn from "../components/overview/OverviewUploadBtn";
 
 export default function OverviewContent() {
@@ -43,11 +44,13 @@ export default function OverviewContent() {
         </section>
 
        {/*right */}
-        <section className="bg-gray-200 w-1/4 h-full">
-          recent
+        
+          <OverviewRightBottom title="Recent Materials:" content="hello"/>
+
+
         </section>
 
-      </section>
+      
 
     </section>
   );
