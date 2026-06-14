@@ -1,5 +1,5 @@
-import HeaderLeftSideItems from "../header/HeaderLeftSideItems";
-import HeaderSearchBar from "../header/HeaderSearchBar";
+import HeaderLeftSideItems from "../components/header/HeaderLeftSideItems";
+import HeaderSearchBar from "../components/header/HeaderSearchBar";
 
 export default function Header(){
     return(

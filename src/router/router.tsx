@@ -1,22 +1,26 @@
 
 import { createBrowserRouter, RouterProvider } from "react-router";
 
-//import RegisterPage from "../pages/RegisterPage";
-import HeroLayout from "../components/layouts/HeroLayout";
+
+import HeroLayout from "../layouts/HeroLayout";
 
 import MaterialsContent from "../pages/Materials";
 import Settings from "../pages/Setting";
 import CollectionContent from "../pages/Collections";
 import OverviewContent from "../pages/OverviewPage";
-//import LoginPage from "../components/layouts/LoginPageLayout";
-import LandingPage from "../pages/LandingPage";
-import RegisterPage from "../components/layouts/RegisterPageLayout";
+
+import LandingPage from "../layouts/LandingPageLayout";
+import LoginSection from "../components/landingPage/rightsidecomponent/LoginSection";
+import RegisterSection from "../components/landingPage/rightsidecomponent/RegisterSection";
+
+
 
 const router=createBrowserRouter([
     {
-        path:"/",children:[
-        {index:true,element:<LandingPage/> },
-        { path:"register-page",element:<RegisterPage/>},
+        path:"/",element:<LandingPage/>,
+        children:[
+        {index:true,element:<LoginSection/> },
+        { path:"register-page",element:<RegisterSection/>},
      ] 
     },
 

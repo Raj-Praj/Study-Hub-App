@@ -1,8 +1,8 @@
 
-import SidebarHeader from "../sidebar/SidebarHeader";
-import SidebarMenu from "../sidebar/SidebarMenu";
-import SidebarAccount from "../sidebar/SidebarAccount";
-import SidebarLogout from "../sidebar/SidebarLogout";
+import SidebarHeader from "../components/sidebar/SidebarHeader";
+import SidebarMenu from "../components/sidebar/SidebarMenu";
+import SidebarAccount from "../components/sidebar/SidebarAccount";
+import SidebarLogout from "../components/sidebar/SidebarLogout";
 
 
 export default function Sidebar() {

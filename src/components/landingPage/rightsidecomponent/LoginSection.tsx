@@ -3,7 +3,7 @@ import { Link } from "react-router"
 import FormInputField from "../../ui/form/input";
 import FormButton from "../../ui/form/formbutton";
 import FormLabel from "../../ui/form/formlabel";
-export default function RightSideComponent(){
+export default function LoginSection(){
     
     return(
     <>

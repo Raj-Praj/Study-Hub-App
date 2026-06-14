@@ -1,8 +1,8 @@
 
 import { Outlet } from "react-router";
-import Sidebar from "./sidebar";
+import Sidebar from "./SidebarLayout";
 
-import Header from "./header";
+import Header from "./HeaderLayout";
 
 
 

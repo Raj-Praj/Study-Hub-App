@@ -1,13 +1,8 @@
 import { Link } from "react-router"
-export default function RightSideComponent(){
+export default function RegisterSection(){
     return(<>
-    <section className="flex w-full h-screen">
-        {/*image content */}
-          <section className="w-3/5 h-screen bg-gray-300">
-               image
-             </section>
-
-        {/*login form*/}
+    
+        {/*Register section*/}
         <section className="w-2/5 h-screen bg-mist-400">
           <section className=" w-full h-full flex justify-center items-center">
               <div className=" bg-gray-500/40  w-100 h-150 rounded-2xl shadow-lg p-10 text-2xl flex flex-col gap-20">
@@ -30,6 +25,6 @@ export default function RightSideComponent(){
                  </div>
              </section>
          </section>
-     </section>
+     
     </>)
 }

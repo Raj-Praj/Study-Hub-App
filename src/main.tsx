@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 
 import './assets/globals.css';
-import RouterConfig from './routes/router';
+import RouterConfig from './router/router';
 
 
 
