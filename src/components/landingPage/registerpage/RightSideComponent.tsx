@@ -1,10 +1,7 @@
 import { Link } from "react-router"
-//import { useNavigate } from "react-router"
-//const navigate=useNavigate()
-export default function RegisterPage(){
-    return(
-        <>
-        <section className="flex w-full h-screen">
+export default function RightSideComponent(){
+    return(<>
+    <section className="flex w-full h-screen">
         {/*image content */}
           <section className="w-3/5 h-screen bg-gray-300">
                image
@@ -34,8 +31,5 @@ export default function RegisterPage(){
              </section>
          </section>
      </section>
-  
-        </>
-        )
-    
+    </>)
 }

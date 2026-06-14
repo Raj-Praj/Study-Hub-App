@@ -19,6 +19,8 @@ export default function RightSideComponent(){
                     <FormInputField type="text" placeholder="Enter your name"/>
 
                     </div>
+
+                    
                      
                      <FormButton navigateWhere="/home">Log in</FormButton>
                      
