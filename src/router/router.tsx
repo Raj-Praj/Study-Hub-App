@@ -12,6 +12,8 @@ import OverviewContent from "../pages/OverviewPage";
 import LandingPage from "../layouts/LandingPageLayout";
 import LoginSection from "../components/landingPage/rightsidecomponent/LoginSection";
 import RegisterSection from "../components/landingPage/rightsidecomponent/RegisterSection";
+import NotFoundComponent from "../components/errors/NotFoundComponent";
+import NotFound from "../pages/NotFound";
 
 
 
@@ -31,8 +33,12 @@ const router=createBrowserRouter([
             { path:"materials",element:<MaterialsContent/> },
             { path:"collections",element:<CollectionContent/> },
             { path:"settings",element:<Settings/> },
+            {path:"*",element:<NotFoundComponent redirectTo="/home"/>}
 
         ]
+    },
+    {path:"*",element:<NotFound/>
+
     }
     ])
 
