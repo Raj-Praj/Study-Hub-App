@@ -3,7 +3,8 @@ import { Link } from "react-router"
 //import FormInputField from "../../ui/form/input";
 import FormButton from "../../ui/form/formbutton";
 import FormLabel from "../../ui/form/formlabel";
-import { Controller, useForm } from "react-hook-form";
+import {useForm } from "react-hook-form";
+import FormInputField from "../../ui/form/input";
 export interface Icredentials{
     username:string,
     password:string
@@ -28,42 +29,9 @@ export default function LoginSection(){
                    <FormLabel className="text-2xl">Login into Study Hub</FormLabel>
                    
                      <div className="flex flex-col gap-7">
-                        <Controller
-                        name="username"
-                        control={control}
-                        render={({field})=>{
-                            return(
-                                <input
-                                type="text"
-                                {...field}
-                                className="border-2 rounded-full  w-70 h-12 text-sm p-3"
-                                name="username"
-                                placeholder="Enter your username..."
-                                />
+                       <FormInputField name="username" control={control}/>
+                       <FormInputField type="password" name="password" control={control}/>
 
-                            )
-                        }}
-                        />
-                        <Controller
-                        name="password"
-                        control={control}
-                        render={({field})=>{
-                            return(
-                                <input
-                                type="password"
-                                {...field}
-                                className="border-2 rounded-full  w-70 h-12 text-sm p-3"
-                                name="passwprd"
-                                placeholder="Enter your password..."
-                                />
-
-                            )
-                        }}
-                        />
-
-{/* 
-                    <FormInputField type="text" placeholder="Enter your name"/>
-                    <FormInputField type="text" placeholder="Enter your name"/> */}
 
                     </div>
 
