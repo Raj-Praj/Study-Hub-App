@@ -5,16 +5,24 @@ import FormButton from "../../ui/form/formbutton";
 import FormLabel from "../../ui/form/formlabel";
 import {useForm } from "react-hook-form";
 import FormInputField from "../../ui/form/input";
-export interface Icredentials{
-    username:string,
-    password:string
-}
+import z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+// export interface Icredentials{
+//     username:string,
+//     password:string
+// }
+const LoginDTO=z.object({
+            username:z.string().min(1,"Username is required").max(30,"Username should not exceed more than 30 characters").nonoptional(),
+            password:z.string().nonempty("Password is required").nonoptional()
+})
+type Icredentials=z.infer<typeof LoginDTO>
 export default function LoginSection(){
-    const{control,handleSubmit}=useForm<Icredentials>({
+    const{control,handleSubmit,formState:{errors}}=useForm<Icredentials>({
         defaultValues:{
             username:"",
             password:""
-        }
+        },
+        resolver:zodResolver(LoginDTO)
     })
     const loginApiCaller=(data:Icredentials)=>{
         console.log(data)
@@ -28,16 +36,18 @@ export default function LoginSection(){
                  
                    <FormLabel className="text-2xl">Login into Study Hub</FormLabel>
                    
-                     <div className="flex flex-col gap-7">
-                       <FormInputField name="username" control={control}/>
-                       <FormInputField type="password" name="password" control={control}/>
+                     <div className="flex flex-col gap-3">
+                       <FormInputField name="username" errMsg={errors?.username?.message} control={control} placeholder="Enter your Username"/>
+                       <FormInputField type="password" errMsg={errors?.password?.message} name="password" control={control} placeholder="Enter your Password"/>
 
 
                     </div>
 
                     
-                     
-                     <FormButton type="submit">Log in</FormButton>
+                      <div className="flex justify-center"> 
+                          <FormButton type="submit" className="bg-blue-600" >Log in</FormButton>
+                        </div>
+                    
                      
                       
                         <FormLabel className="text-xl text-center text-gray-800"> New here?{" "}

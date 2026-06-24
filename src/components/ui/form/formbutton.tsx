@@ -1,17 +1,19 @@
 //import { useNavigate } from "react-router"
 
+import type { ReactNode } from "react"
+
 export type FormButtonProps={
     type:"submit"|"reset"|"button",
-    navigateWhere?:string,
-    children:string
+   
+    children:ReactNode,
+    className?:string
 }
-export default function FormButton({type="button",children}:Readonly<FormButtonProps>){
-    //const navigate=useNavigate()
+export default function FormButton({type="button",children,className}:Readonly<FormButtonProps>){
+    
     return(<>
-    <div className="flex justify-center items-center">
-                         <button type={type} className="cursor-pointer  justify-center items-center w-60 h-10 bg-blue-600 rounded-full text-xl hover:bg-sky-700 " >
+                         <button type={type} className={`cursor-pointer  justify-center items-center w-30 h-10 border rounded-full text-xl hover:bg-sky-700 ${className}` } >
                             {children}
                             </button>
-     </div>
+     
     </>)
 }
