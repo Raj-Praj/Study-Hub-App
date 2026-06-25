@@ -6,22 +6,28 @@ import {  useForm } from "react-hook-form"
 import FormInputField, { SelectInput } from "../../ui/form/input"
 import  z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
-// export interface iCredentials1{
-//     user_name:string,email:string,password:string
 
-// }
+const passwordPattern=/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\W]).{8,25}$/;
 
 const RegisterDTO=z.object({             //schema
       user_name:z.string().nonempty().nonoptional(),
-        email:z.email().nonempty().nonoptional(),
-        new_password:z.string().nonempty().nonoptional(),
+      email:z.email().nonempty().nonoptional(),
+      new_password:z.string().regex(passwordPattern,"password must comply with strong password rule").nonempty().nonoptional(),
+    //    new_password:z.string()
+    //     .regex(/[a-z]/,"Must have atleast 1 small letter")
+    //     .regex(/[A-Z]/,"Must have atleast 1 upper  letter")
+    //     .regex(/[0-9]/,"Must have atleast 1 number")
+    //     .regex(/[\W]/,"Must have atleast one special character")
+    //     .min(8,"Password must be atleast 8 characters long")
+    //     .max(25,"Passord must be of atmost 25 character long")
+    //     .nonempty().nonoptional(),
         current_password:z.string().nonempty().nonoptional(),
-        role:z.string().nonempty("Please select a role")
-
-
-
-
+        role:z.string().regex(/^(customer|seller)$/,"Role must be either customer or seller").nonempty("Please select a role")
+}).refine((val)=>val.new_password===val.current_password,{
+    message:"Paswword and confirm password must match",
+    path:['current_password']
 })
+
 type Rcredentials=z.infer<typeof RegisterDTO>
 export default function RegisterSection(){
 const{control,handleSubmit,formState:{errors}}=useForm<Rcredentials>({
@@ -36,9 +42,6 @@ const{control,handleSubmit,formState:{errors}}=useForm<Rcredentials>({
 })
 const RegisterUser=(data:Rcredentials)=>{
    console.log(data)
-//    if(new_password===current_password){
-//     console.log("password donot match")
-//    }
 }
 
     return(<>
