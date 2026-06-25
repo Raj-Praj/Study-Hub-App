@@ -1,7 +1,7 @@
 import { Link } from "react-router"
 
 //import FormInputField from "../../ui/form/input";
-import FormButton from "../../ui/form/formbutton";
+import  { SubmitButton } from "../../ui/form/button";
 import FormLabel from "../../ui/form/formlabel";
 import {useForm } from "react-hook-form";
 import FormInputField from "../../ui/form/input";
@@ -12,7 +12,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 //     password:string
 // }
 const LoginDTO=z.object({
-            username:z.string().min(1,"Username is required").max(30,"Username should not exceed more than 30 characters").nonoptional(),
+            username:z.string().min(1,"Username is required").nonoptional(),
             password:z.string().nonempty("Password is required").nonoptional()
 })
 type Icredentials=z.infer<typeof LoginDTO>
@@ -45,7 +45,7 @@ export default function LoginSection(){
 
                     
                       <div className="flex justify-center"> 
-                          <FormButton type="submit" className="bg-blue-600" >Log in</FormButton>
+                         <SubmitButton>Login</SubmitButton>
                         </div>
                     
                      

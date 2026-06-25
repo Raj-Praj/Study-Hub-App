@@ -2,7 +2,7 @@ import type { ReactNode } from "react"
 
 export type FormLabelProps={
     children:ReactNode,
-    className:string
+    className?:string
 }
 export default function FormLabel({className,children}:Readonly<FormLabelProps>){
     return(
