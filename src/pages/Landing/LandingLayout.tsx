@@ -1,6 +1,6 @@
 import background from "../../assets/LandingImages/background.jpg"
 import LandingNavbar from "./components/Navbar"
-import HeroWrapper from "./HeroLayout"
+import ContentWrapper from "./ContentLayout"
 export default function LandingPage(){
     return(
         <>
@@ -10,7 +10,8 @@ export default function LandingPage(){
 
                 
                 <LandingNavbar/>
-                <HeroWrapper/>
+                
+                <ContentWrapper/>
 
 
 

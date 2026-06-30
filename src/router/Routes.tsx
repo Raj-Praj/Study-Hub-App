@@ -1,12 +1,19 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
-import LandingPage from "../pages/Landing/LandingPage";
+import LandingPage from "../pages/Landing/LandingLayout";
+import LoginForm from "../pages/Landing/LoginForm";
+import RegisterForm from "../pages/Landing/RegisterForm";
 
 
 
 
  const router=createBrowserRouter([
     {
-        path:"/",element:<LandingPage/>
+        path:"/",element:<LandingPage/>,
+        children:[
+            {index:true,element:<LoginForm/> },
+            {path:"register",element:<RegisterForm/>
+            }
+    ]
     }
  ])
 export default function RouterConfig(){
