@@ -12,6 +12,8 @@ const LoginSchema=z.object({
 })
 type LoginCredentials=z.infer<typeof LoginSchema>
 
+
+
 export default function LoginForm(){
     const{control,handleSubmit,formState:{errors}}=useForm<LoginCredentials>({
         defaultValues:{
@@ -32,7 +34,7 @@ const LoginApiCaller=(data:LoginCredentials)=>{
     <>
   
             <form 
-                 className="w-full flex  flex-col gap-3 items-center"
+                 className="w-full flex  flex-col gap-2 items-center"
                   onSubmit={handleSubmit(LoginApiCaller)}
              >
                  <div className="flex flex-col w-full">

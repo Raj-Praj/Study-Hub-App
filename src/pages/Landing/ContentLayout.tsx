@@ -4,10 +4,10 @@ import HeroContent from "./components/HeroSection";
 
 export default function ContentWrapper(){
     return(
-        <section className="w-full flex gap-10 relative">
+        <section className="w-full flex gap-10 relative items-start ">
             
 
-             <div className="w-2/5 flex  justify-center px-10 items-start text-left  flex-col ">
+             <div className="w-2/5 flex  justify-center px-10 items-start ml-5 text-left  flex-col ">
 
                   <HeroContent/>
 
