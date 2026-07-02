@@ -1,6 +1,6 @@
 import background from "../../assets/LandingImages/background.jpg"
-import LandingNavbar from "./components/Navbar"
-import ContentWrapper from "./ContentLayout"
+import LandingNavbar from "../../pages/Landing/components/Navbar"
+import ContentWrapper from "../../pages/Landing/ContentWraper"
 export default function LandingPage(){
     return(
         <>

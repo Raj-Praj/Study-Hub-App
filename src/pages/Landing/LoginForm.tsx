@@ -5,11 +5,9 @@ import FormLabel from "./components/form/label"
 import { Link } from "react-router"
 import FormButton from "./components/form/button"
 import {zodResolver} from "@hookform/resolvers/zod"
-const LoginSchema=z.object({
-    username:z.string().min(8),
-    password:z.string().min(8),
-    rememberMe:z.boolean()
-})
+import { LoginSchema } from "./ValidationSchema/LoginSchema"
+
+
 type LoginCredentials=z.infer<typeof LoginSchema>
 
 

@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
-import LandingPage from "../pages/Landing/LandingLayout";
+import LandingPage from "../layouts/landing/LandingLayout";
 import LoginForm from "../pages/Landing/LoginForm";
 import RegisterForm from "../pages/Landing/RegisterForm";
 
@@ -14,6 +14,9 @@ import RegisterForm from "../pages/Landing/RegisterForm";
             {path:"register",element:<RegisterForm/>
             }
     ]
+    }
+    ,{
+        path:"/home",element:<></>
     }
  ])
 export default function RouterConfig(){
