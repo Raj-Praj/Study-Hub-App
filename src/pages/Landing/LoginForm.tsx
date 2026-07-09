@@ -6,6 +6,7 @@ import { Link } from "react-router"
 import FormButton from "./components/form/button"
 import {zodResolver} from "@hookform/resolvers/zod"
 import { LoginSchema } from "./ValidationSchema/LoginSchema"
+import axiosInstance from "../../services/apiClient"
 
 
 type LoginCredentials=z.infer<typeof LoginSchema>
@@ -24,8 +25,13 @@ export default function LoginForm(){
 
     },
 )
-const LoginApiCaller=(data:LoginCredentials)=>{
-    console.log(data)
+const LoginApiCaller=async (data:LoginCredentials)=>{
+    try{
+        const response=await axiosInstance.post('auth/login',data);
+        console.log(response)
+    }catch(exception){
+        console.log(exception)
+    }
 
 }
     return(
