@@ -2,18 +2,21 @@ import { Controller, useForm } from "react-hook-form"
 import z from "zod"
 import { InputField } from "./components/form/input"
 import FormLabel from "./components/form/label"
-import { Link } from "react-router"
+import { Link, useNavigate } from "react-router"
 import FormButton from "./components/form/button"
 import {zodResolver} from "@hookform/resolvers/zod"
 import { LoginSchema } from "./ValidationSchema/LoginSchema"
 import axiosInstance from "../../services/apiClient"
+import Cookies from "js-cookie"
+import type { IUserDetail } from "../../types/AuthType"
+
+ export type LoginCredentials=z.infer<typeof LoginSchema>
 
 
-type LoginCredentials=z.infer<typeof LoginSchema>
-
-
-
+//function start
 export default function LoginForm(){
+
+
     const{control,handleSubmit,formState:{errors}}=useForm<LoginCredentials>({
         defaultValues:{
             username:"",
@@ -25,10 +28,50 @@ export default function LoginForm(){
 
     },
 )
+const navigate=useNavigate();
+
+const getLoggedInUser=async():Promise<IUserDetail | void>=>{
+    try{
+          const token=Cookies.get("_at_64") as string;
+
+    const userDetail=(await axiosInstance.get("/auth/me",{
+        headers:{
+            Authorization:"Bearer " +token,
+        }
+    })) as unknown as {data:IUserDetail};
+    return userDetail.data;
+
+    }catch(exception){
+        console.log(exception)
+    }
+  
+
+}
+
+
 const LoginApiCaller=async (data:LoginCredentials)=>{
     try{
-        const response=await axiosInstance.post('auth/login',data);
-        console.log(response)
+        const response=await axiosInstance.post('/auth/login',data);
+            Cookies.set("_at_64",response.data.accessToken,{
+                secure:true,
+                expires:1,
+                //domain:""
+                //path:"/"
+                sameSite:"strict"
+            })
+             Cookies.set("_rt_64",response.data.refreshToken,{
+                secure:true,
+                expires:1,
+                //domain:""
+                //path:"/"
+                sameSite:"strict"
+            })
+
+        //    localStorage.setItem("_at_64",response.data.accessToken);
+        //    localStorage.setItem("_rt_64",response.data.refreshToken);
+
+        await getLoggedInUser();
+        navigate("/app");
     }catch(exception){
         console.log(exception)
     }

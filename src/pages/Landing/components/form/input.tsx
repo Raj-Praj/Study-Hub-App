@@ -30,7 +30,7 @@ export const InputField=<T extends FieldValues>({type='text',name,control,placeh
 
         />
        
-            <span className="text-red-400 text-sm min-h-[20px] ">{errorMsg}</span>
+            <span className="text-red-600/80 text-sm min-h-[20px] ">{errorMsg}</span>
     
         </>)
     }}

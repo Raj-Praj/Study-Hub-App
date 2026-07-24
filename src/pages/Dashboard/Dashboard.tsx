@@ -1,3 +1,10 @@
 export default function Dashboard(){
-    return(<>dashboard</>)
+    return(<>
+    <main className="w-full max-h-screen">
+        <section className="grid ">
+
+        </section>
+
+    </main>
+    </>)
 }
