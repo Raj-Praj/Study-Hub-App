@@ -2,7 +2,7 @@ import type { LoginCredentials } from "../pages/Landing/LoginForm";
 
 export interface IUserDetail{
     
-    id: Number,
+    id: number,
     firstName: string,
     lastName: string,
     maidenName: string,
@@ -24,6 +24,6 @@ export interface IUserDetail{
     
 export interface IAuthContext{
     loggedInUser:null | IUserDetail,
-    login:(data:LoginCredentials)=>Promise<void | IUserDetail>,
+    login:(credentails:LoginCredentials)=>Promise<void | IUserDetail>,
     getLoggedInUser:()=>Promise<void|IUserDetail>
 }

@@ -1,6 +1,8 @@
 import { createContext } from "react";
 
-const AuthContext=createContext({
+import type { IAuthContext } from "../../types/AuthType";
+
+const AuthContext=createContext<IAuthContext>({
     loggedInUser:null,
     login:async()=>{},
     getLoggedInUser:async()=>{},
